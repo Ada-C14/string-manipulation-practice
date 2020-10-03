@@ -11,6 +11,8 @@
 #                   In a worst case scenario, the inner loop runs once in the first loop and n-1 times
 #                   in the last loop. This is about the equivalent to summing up the first
 #                   n -1 positive numbers, or (n - 1) * (n - 1 + 1)/2 = (n^2 - n)/2, or n^2 iterations.
+#                   There IS an insert function in there, but that doesn't multiply on top of the O(n^2)
+#                   complexity. So more like ((n^2 - n)/2) + n, which is still O(n^2)
 # Space complexity: O(n) There are two O(n) operations that add up linearly.
 #                   First, from creating the unsorted array from the string with the .split method
 #                   Second, from created the sort array to where elements of the unsorted array were sorted into.
@@ -29,7 +31,7 @@ def sort_by_length(my_sentence)
   sorted = [] # another O(n) space complexity operation
   # add the first element; by this point, all arrays have at least tweo
   insert = unsorted.shift
-  sorted.append(insert)
+  sorted.append(insert) # since this is ALWAYS a single element, SHOULD be O(1)
   # outer loop, O(n) to go through unsorted array
   until unsorted.empty?
     insert = unsorted.shift
