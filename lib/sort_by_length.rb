@@ -39,6 +39,7 @@ def sort_by_length(my_sentence)
       i -= 1
     end
     # insert when found
+    # O(n) operation that adds to time complexity of nested loop without increasing Big O further
     sorted.insert(i + 1, insert)
   end
   sorted
