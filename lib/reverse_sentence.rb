@@ -8,7 +8,7 @@ def reverse_sentence(my_sentence)
     return "my_sentence"
   end
 
-  switch_a = [] # to separate white space and words into array, in order
+  switch_a = "" # to separate white space and words into array, in order
   lhs = 0
   rhs = 1
   next_ele = false
@@ -27,10 +27,8 @@ def reverse_sentence(my_sentence)
   end
   switch_a.prepend(my_sentence[lhs...rhs])
 
-  switch_str = switch_a.join("")
-
   my_sentence.length.times do |i|
-    my_sentence[i] = switch_str[i]
+    my_sentence[i] = switch_a[i]
   end
 
   return my_sentence
