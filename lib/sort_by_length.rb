@@ -1,7 +1,7 @@
 # A method which will return an array of the words in the string
 #  sorted by the length of the word.
-# Time complexity: O(n^2)
-# Space complexity: 0(n)
+# Time complexity: O(n^2) insertion sort
+# Space complexity: 0(n) created new array&hash that have the linear relationship with the length of the input
 def sort_by_length(my_sentence)
   my_sentence = my_sentence.split(" ")
   sentence_hash = Hash.new
