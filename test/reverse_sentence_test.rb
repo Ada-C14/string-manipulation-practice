@@ -1,6 +1,6 @@
 require_relative "test_helper"
 
-xdescribe "reverse sentence" do
+describe "reverse sentence" do
   describe "basic tests" do
     it "reverse a sentence with two words" do
       test_string = "hello, world"
