@@ -14,6 +14,8 @@ def reverse_sentence(my_sentence)
   start_idx = 0
   end_idx = my_arr.size - 1
 
+  # x.times { |idx| a[idx], a[-1-idx] = a[-1-idx], a[idx] }
+
   until start_idx > (my_arr.size / 2)
     # p "start idx = #{start_idx}"
     # p "end idx = #{end_idx}"
@@ -28,7 +30,7 @@ def reverse_sentence(my_sentence)
 
   # p my_arr
 
-  my_sentence = my_arr.join
+  my_sentence[0...my_sentence.length] = my_arr.join[0...my_sentence.length]
   # p my_sentence
   return my_sentence
 end
