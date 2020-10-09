@@ -18,18 +18,15 @@ end
 
 def merge_and_sort(left, right)
   merged = []
-  # puts "Merging #{left} with #{right}"
+
   while left.size > 0 && right.size > 0
     if left[0].length < right[0].length
-      # puts "Left word is shorter than right word"
       merged << left[0]
       left.shift
     elsif left[0].length == right[0].length
-      # puts "Left word is same length as right word"
       merged << left[0]
       left.shift
     else
-      # puts "Right word is shorter than left word"
       merged << right[0]
       right.shift
     end
@@ -52,20 +49,14 @@ def sort_by_length(my_sentence)
     words_arr = my_sentence
   end
 
-  # puts "This is the array I'm checking: #{words_arr}"
-
   # Baseline - 1 element array is sorted
   return words_arr if words_arr.size == 1
 
   left_arr, right_arr = split_arr(words_arr)
 
-  # puts "This is my left array: #{left_arr}"
-  # puts "This is my right array: #{right_arr}"
   # Sub-problem 1 - divide
   left_arr = sort_by_length(left_arr)
   right_arr = sort_by_length(right_arr)
-  # puts "Here is my left array to merge: #{left_arr}"
-  # puts "Here is my right array to merge: #{right_arr}"
 
   # Sub-problem 2 - conquer (merge and sort)
   merged_arr = merge_and_sort(left_arr, right_arr)
