@@ -1,6 +1,6 @@
 require_relative "test_helper"
 
-xdescribe "sort_by_length" do
+describe "sort_by_length" do
   it "will return an empty array for an empty string" do
     expect(sort_by_length("")).must_equal []
   end
