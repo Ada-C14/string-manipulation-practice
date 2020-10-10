@@ -4,11 +4,11 @@
 # Where n is the size of the array (or number of words passed through the string):
 # >> Time complexity: O(nlogn)
 #    There are logn levels of work to do (dividing array in half logn times)
-#    At each level, n comparisons are made (on average)
-# >> Space complexity: O(nlogn)
+#    At each level, a total of n - 1 comparisons are made
+#    (on average - unless first element of right array is larger than the last element in the left array)
+# >> Space complexity: O(n)
 #    We create temporary left and right sub-arrays (by splitting original in half each layer)
-#    It takes logn steps to get to single element arrays, with each layer requiring total of "n" space
-#    (unless Ruby somehow garbage collects between steps?  Then O(n))
+#    However, due to Ruby garbage collection, we only need space for the final merged array of size n
 
 def split_arr(arr)
   mid_point = (arr.size - 1) / 2

@@ -1,6 +1,13 @@
 # A method to reverse the words in a sentence, in place.
-# Time complexity: O(n)
-# Space complexity: O(n)
+#
+# Where n is the number of sentence parts in the argument string (ex. chunk of spaces or a word)
+# and m is the length of the string (and m > n)
+# >> Time complexity: O(m)
+#    Split is O(m); where m is length of string
+#    Reject is O(n); where n is the number of split parts
+#    n/2 swaps are made
+# >> Space complexity: O(n)
+#    Create an array of size n to do the swapping
 def reverse_sentence(my_sentence)
   # raise NotImplementedError
   if my_sentence.nil? || my_sentence.empty?
