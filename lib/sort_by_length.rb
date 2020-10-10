@@ -1,17 +1,20 @@
 # A method which will return an array of the words in the string
-#  sorted by the length of the word.
-# Time complexity: O(nlogn)
-# Space complexity: O(n)
+# sorted by the length of the word.
+#
+# Where n is the size of the array (or number of words passed through the string):
+# >> Time complexity: O(nlogn)
+#    There are logn levels of work to do (dividing array in half logn times)
+#    At each level, n comparisons are made (on average)
+# >> Space complexity: O(nlogn)
+#    We create temporary left and right sub-arrays (by splitting original in half each layer)
+#    It takes logn steps to get to single element arrays, with each layer requiring total of "n" space
+#    (unless Ruby somehow garbage collects between steps?  Then O(n))
 
 def split_arr(arr)
-  mid_point = (0 + arr.size - 1) / 2
-  start_idx_left = 0
-  end_idx_left = mid_point
-  start_idx_right = mid_point + 1
-  end_idx_right = arr.size - 1
+  mid_point = (arr.size - 1) / 2
 
-  left_arr = arr[start_idx_left..end_idx_left]
-  right_arr = arr[start_idx_right..end_idx_right]
+  left_arr = arr[0..mid_point]
+  right_arr = arr[(mid_point + 1)..(arr.size - 1)]
 
   return left_arr, right_arr
 end
