@@ -1,7 +1,7 @@
 # A method which will return an array of the words in the string
 #  sorted by the length of the word.
-# Time complexity: O(n log n)
-# Space complexity: O(n)
+# Time complexity: O(n log n) where n is the length of the sentence
+# Space complexity: O(n) where n is the length of the sentence
 def sort_by_length(my_sentence)
   unsorted_words = my_sentence.split(/\W+/)
   merge_sort(unsorted_words)
@@ -24,7 +24,7 @@ def merge_sort(unsorted_words)
   end
 end
 
-# Time complexity: O(n)
+# Time complexity: O(n) where n is the length of the sentence
 # Space complexity: O(1)
 def merge(left_array, right_array)
   if left_array.empty?

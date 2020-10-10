@@ -1,5 +1,5 @@
 # A method to reverse the words in a sentence, in place.
-# Time complexity: O(n)
+# Time complexity: O(n*m) where n is the length of the sentence and m is the length of the longest word
 # Space complexity: O(1)
 def reverse_sentence(my_sentence)
   return my_sentence if my_sentence.nil?
@@ -30,7 +30,7 @@ def reverse_sentence(my_sentence)
 end
 
 # Helper method to reverse
-# Time complexity: O(n)
+# Time complexity: O(n) where n is the length of the sentence
 # Space complexity: O(1)
 def reverse(my_sentence)
   return if my_sentence.nil?
