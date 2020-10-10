@@ -36,9 +36,9 @@ def reverse_sentence(my_sentence)
   end
   #string is now reversed - "dlrow ,olleh"
 
-  words = my_sentence.scan(/[^\s]+/)
+  words = my_sentence.scan(/[^\s]+/) #an array of sets of non-whitespace (words)
   p words
-  dup_words = words.map {|word| word + ""}
+  dup_words = words.map {|word| word + ""} #needed hard copy so that I can still reference original backwards words when searched and replace with .gsub!
   reversed_words = reverse_words(dup_words)
   p reversed_words
 
