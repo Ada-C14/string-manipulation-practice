@@ -3,7 +3,7 @@
 # Time complexity: O(n log n)
 # Space complexity: O(n)
 def sort_by_length(my_sentence)
-  unsorted_words = my_sentence.split(/[^0-9A-Za-z\']/)
+  unsorted_words = my_sentence.split(/\W+/)
   merge_sort(unsorted_words)
 end
 
