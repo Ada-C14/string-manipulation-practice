@@ -20,7 +20,7 @@ def sort_by_length(my_sentence)
       j -= 1
       p array
     end
-    # this will execute if array[0] < array[1], nothing is happening here?  Except i += 1?
+    # this will execute if array[0] < array[1]
     array[j] = to_insert
     i += 1
     p array
