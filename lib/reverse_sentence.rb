@@ -23,8 +23,4 @@ def reverse_sentence(my_sentence)
   return my_sentence
 end
 
-p reverse_sentence("hello, world")
-p reverse_sentence("Yoda is awesome!")
-p reverse_sentence("I'm a better engineer today than I was yesterday.")
-p reverse_sentence("How  do  you   like     them      apples?")
-p reverse_sentence("  I can do this!     ")
+
