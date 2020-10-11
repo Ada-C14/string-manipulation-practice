@@ -63,7 +63,7 @@ describe "reverse sentence" do
       expect(test_string).must_equal "apples?      them     like   you  do  How"
     end
 
-    it "reverse a sentence with preceeding and trailing white spaces" do
+    it "reverse a sentence with preceding and trailing white spaces" do
       test_string = "  I can do this!     "
 
       reverse_sentence(test_string)
