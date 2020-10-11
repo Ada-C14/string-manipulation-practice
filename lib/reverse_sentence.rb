@@ -6,7 +6,7 @@ def reverse_sentence(my_sentence)
     return my_sentence
   end
 
-  words = my_sentence.split(/(?=\s)|(?<=\s)/)
+  words = my_sentence.split(/(\s+)/)
 
   first = 0
   last = words.length - 1
@@ -22,3 +22,9 @@ def reverse_sentence(my_sentence)
   my_sentence[0...my_sentence.length] = words.join[0...my_sentence.length]
   return my_sentence
 end
+
+p reverse_sentence("hello, world")
+p reverse_sentence("Yoda is awesome!")
+p reverse_sentence("I'm a better engineer today than I was yesterday.")
+p reverse_sentence("How  do  you   like     them      apples?")
+p reverse_sentence("  I can do this!     ")
