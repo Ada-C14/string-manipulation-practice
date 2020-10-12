@@ -3,5 +3,27 @@
 # Time complexity: ?
 # Space complexity: ?
 def sort_by_length(my_sentence)
-  raise NotImplementedError, "Method not implemented"
+  
+  array = my_sentence.split(" ")
+
+  length = array.length
+
+  i = 1
+
+  while i < length
+    to_insert = array[i]
+    j = i
+
+    while j > 0 && array[j-1].length > to_insert.length
+      array[j] = array[j-1]
+      j -= 1
+    end
+
+    array[j] = to_insert
+    i += 1
+
+  end
+
+  return array
+
 end
