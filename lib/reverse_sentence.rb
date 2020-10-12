@@ -1,6 +1,6 @@
 # A method to reverse the words in a sentence, in place.
-# Time complexity: O(n)
-# Space complexity: O(n)
+# Time complexity: O(n^3) (n = number of elements in the input object; each loop has O(n) time complexity, so the total time complexity is O(n^3))
+# Space complexity: O(n) (n = number of elemetns in the input array)
 
 
 def reverse_sentence(my_sentence)
