@@ -111,7 +111,7 @@ def reverse_word(start_index, length, string) #start index 0, length 7, actual i
     string[start_index] = temp #first index value is reassigned to last (temp)
     i += 1
     start_index += 1
-    p string
+    #p string
   end
 end
 
@@ -120,14 +120,13 @@ def reverse_sentence(my_sentence)
 
   length = my_sentence.length
   i = 0
-  while i < (length/2)
+  while i < (length / 2)
     temp = my_sentence[length - 1 - i]
-    my_sentence[length - 1 -i] = my_sentence[i]
+    my_sentence[length - 1 - i] = my_sentence[i]
     my_sentence[i] = temp
 
     i += 1
   end
-  p my_sentence
   # string is now reversed - "dlrow ,olleh"
 
   start_index = 0
@@ -153,22 +152,16 @@ def reverse_sentence(my_sentence)
       in_word = false
     end
 
-    if in_word && (sen_length - 1) == index
+    if in_word && (sen_length - 1) == index #if in word is true and there is no following white spce (we're at the end of the string)
       reverse_word(start_index, length, my_sentence)
-      p my_sentence
     end
-
-    puts "****** item #{item}"
-    puts "start index #{start_index}"
-    puts "length #{length}"
-    puts "index #{index}"
-    p in_word
-    #reverse word in place
+    # puts "****** item #{item}"
+    # puts "start index #{start_index}"
+    # puts "length #{length}"
+    # puts "index #{index}"
+    # p in_word
   end
-
-  p my_sentence
-
-  return my_sentence
+  #p my_sentence
 end
 
-reverse_sentence("How  do  you   like     them      apples?")
+#reverse_sentence("How  do  you   like     them      apples?")

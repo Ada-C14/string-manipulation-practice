@@ -7,8 +7,6 @@ def sort_by_length(my_sentence)
   array = my_sentence.split
   length = array.length
 
-  p array
-
   i = 1
   while i < length
     to_insert = array[i]
@@ -18,12 +16,10 @@ def sort_by_length(my_sentence)
       # while the value at index 0 (or the index 1 before i) is greater than the value at index 1, then the value at index (i) should be reassigned to the value at index 0
       array[j] = array[j - 1]
       j -= 1
-      p array
     end
     # this will execute if array[0] < array[1]
     array[j] = to_insert
     i += 1
-    p array
   end
   return array
 end
