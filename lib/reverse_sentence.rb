@@ -1,23 +1,22 @@
 # A method to reverse the words in a sentence, in place.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse_sentence(my_sentence)
-  # split up the sentence and place the words in an array
-  # include the spaces
+
+  return my_sentence if my_sentence == nil
+
   array = my_sentence.split(/(\s+)/)
 
-  i = 0
-  j = array.length - 1
+  return my_sentence if array.length <= 1
 
-  until i > j
-    temp = array[i]
-    array[i] = array[j]
-    array[j] = temp
+  new_sentence = ""
+  array.length.times {new_sentence << array.pop}
 
-    i += 1
-    j -= 1
+  new_sentence.each_char.with_index do |char, i|
+    my_sentence[i] = char
   end
 
-  return array
+  return my_sentence
 end
+
 
