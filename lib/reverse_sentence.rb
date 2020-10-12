@@ -100,15 +100,14 @@
 #####################################
 #### 3rd way - without using regex methods
 
-def reverse_word(start_index, length, string) #
-
+def reverse_word(start_index, length, string) #start index 0, length 7, actual index 6
   end_index = start_index + length - 1
   i = 0
   start = start_index.clone #need hard copy of the starting index for the comparison in the while statement
 
   while start_index < (start + (length / 2)) #half way between the start & end index
-    temp = string[end_index - 1 - i] #ending index
-    string[end_index - 1 - i] = string[start_index] #last index value is reassigned to first
+    temp = string[end_index - i] #ending index
+    string[end_index - i] = string[start_index] #last index value is reassigned to first
     string[start_index] = temp #first index value is reassigned to last (temp)
     i += 1
     start_index += 1
@@ -116,22 +115,8 @@ def reverse_word(start_index, length, string) #
   end
 end
 
-# def reverse_word(start_index, length, string) #start index 7, length 6 ***SOMETHING IS OFF HERE WITH THE LENGTH
-#   end_index = start_index + length - 1
-#   i = start_index
-#   while i < (start_index + (length / 2)) #half way between the start & end index
-#     temp = string[end_index - i ] #ending index
-#     string[end_index - i] = string[i]
-#     string[i] = temp
-#     i += 1
-#   end
-#   #return string
-# end
-
 def reverse_sentence(my_sentence)
   return nil if my_sentence.nil?
-  # idea is to reverse the string element by element
-  # and then find just the "words" (non-whitespace characters) and reverse the words back in place
 
   length = my_sentence.length
   i = 0
@@ -149,7 +134,7 @@ def reverse_sentence(my_sentence)
   length = 0
   in_word = false
   sen_length = my_sentence.length
-  p sen_length
+
   my_sentence.each_char.with_index do |item, index|
     #the first non-white space character
     if item.strip.empty? && !in_word #when item == whitespace
@@ -180,11 +165,6 @@ def reverse_sentence(my_sentence)
     p in_word
     #reverse word in place
   end
-
-  end_index = start_index + length
-
-  p start_index
-  p end_index
 
   p my_sentence
 
