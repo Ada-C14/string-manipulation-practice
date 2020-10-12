@@ -1,7 +1,7 @@
 # A method which will return an array of the words in the string
 #  sorted by the length of the word.
 # Time complexity: O(n^2)
-# Space complexity: O(1)
+# Space complexity: O(1) - linear because 1 set of arrays/variables is created? Or O(n) because of the created array?
 def sort_by_length(my_sentence)
   sort = my_sentence.split("\s")
   length = sort.length
