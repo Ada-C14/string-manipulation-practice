@@ -7,6 +7,7 @@ def sort_by_length(my_sentence)
   array = my_sentence.split(" ")
   length = array.length
 
+  # using insertion sort
   i = 1
   while i < length
     to_insert = array[i]
