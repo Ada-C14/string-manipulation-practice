@@ -1,4 +1,3 @@
-require 'strscan'
 # A method to reverse the words in a sentence, in place.
 # Time complexity: O(n)
 # Space complexity: O()
@@ -51,25 +50,27 @@ require 'strscan'
 #   return my_sentence
 # end
 
+#######################################
+#### 2nd way of doing it - return the beginning/end indexes for each non-whitespace group and then swap in place
 
-# def reverse_words(word)
+# def reverse_word(start_index, end_index, string) #start_index = 13, end_index = 17, actual is 16
+#   length = end_index - start_index #length is 4
 #   i = 0
-#   length = word.length
-#
-#   while i < length / 2
-#     temp = word[length - 1 - i ]
-#     word[length - 1 - i ] = word[i]
-#     word[i] = temp
+#   start = start_index.clone #need hard copy of the starting index for the comparison in the while statement
+#   while start_index < (start + (length / 2)) #half way between the start & end index
+#     temp = string[end_index - 1 - i] #ending index
+#     string[end_index - 1 - i] = string[start_index] #last index value is reassigned to first
+#     string[start_index] = temp #first index value is reassigned to last (temp)
 #     i += 1
+#     start_index += 1
+#     p string
 #   end
-#
-#   return word
 # end
 #
+# # idea is to reverse the string element by element
+# # and then find just the "words" (non-whitespace characters) and reverse the words back in place
 # def reverse_sentence(my_sentence)
 #   return nil if my_sentence.nil?
-#   # idea is to reverse the string element by element
-#   # and then find just the "words" (non-whitespace characters) and reverse the words back in place
 #
 #   length = my_sentence.length
 #   i = 0
@@ -83,71 +84,49 @@ require 'strscan'
 #   end
 #   # string is now reversed - "dlrow ,olleh"
 #
-#   # match_data = my_sentence.match(/[^\s]+/)
-#   # p match_data ##=> #<MatchData "!dlrow">
-#
 #   # https://stackoverflow.com/questions/5241653/ruby-regex-match-and-get-positions-of
-#   positions = my_sentence.enum_for(:scan, /[^\s]+/).map { Regexp.last_match.begin(0) }
-#   p positions # prints the starting positions of the 2 matches?
+#   start_positions = my_sentence.enum_for(:scan, /[^\s]+/).map { Regexp.last_match.begin(0) } #returns an array of all the starting indexes for the matches
 #
-#   p positions_end = my_sentence.enum_for(:scan, /[^\s]+/).map { Regexp.last_match.end(0) }
+#   end_positions = my_sentence.enum_for(:scan, /[^\s]+/).map { Regexp.last_match.end(0) } #returns an array of the "ending" indexes, really the index 1 AFTER the match
 #
-#   my_sentence.scan(/[^\s]+/) { |match| puts "Found match #{match}, reversed #{reverse_words(match)}" }
-#
-#   m = /[^\s]+/.match(my_sentence)
-#   p m
-#   p m.begin(0)
-#   p m.end(0) ##=> returns 6, the index after end of the matched word
-#
-#   puts "Scanning string start:::::"
-#   scan_string = StringScanner.new(my_sentence, dup = false)
-#
-#   p scan_string.match?(/[^\s]+/) # returns index after the end of the matched word
-#   p scan_string.matched
-#   p scan_string.match?(/[\s]+/)
-#   p scan_string.matched
-#   puts "scan string end"
-#
-#
-#   # until scan_string.eos?
-#     # scan_string.scan_until(/[^\s]+/)
-#
-#
-#     # ###*****try these two lines
-#     # scan_string.skip(/[\s]+/)
-#     # p reverse_words(scan_string.scan(/[^\s]+/))
-#
-#     # p reverse_words(scan_string.scan(/[^\s]+/))
-#     # ####does not change my_stentence, but it DOES work to reverse the matches to that regex, returns each word reversed ***************************
-#
-#     # scan_string.scan(/[^\s]+/)
-#
-#     # word = scan_string.scan(/[^\s]+/).clone #don't do the reverse helper on this because it will change the memory address
-#     # #
-#     # scan_string.skip(/[\s]+/)
-#     # my_sentence.gsub!(scan_string.scan(/[^\s]+/), reverse_words(word))
-#
-#
-#     # p word
-#   # end
-#
-#   # "dlrow world"
+#   start_positions.each_with_index do |start_index, index|
+#     p start_index
+#     p end_positions[index]
+#     reverse_word(start_index, end_positions[index], my_sentence)
+#   end
 #   p my_sentence
-#
-#   return my_sentence
 # end
 
+#####################################
+#### 3rd way - without using regex methods
 
-def reverse_word(start_index, length, string) #start index 7, length 6 ***SOMETHING IS OFF HERE WITH THE LENGTH
-  i = start_index
-  while i < (start_index + (length / 2))
-    temp = string[(start_index + length) - 1 - i ]
-    string[(start_index + length) - 1 - i ] = string[i]
-    string[i] = temp
+def reverse_word(start_index, length, string) #
+
+  end_index = start_index + length - 1
+  i = 0
+  start = start_index.clone #need hard copy of the starting index for the comparison in the while statement
+
+  while start_index < (start + (length / 2)) #half way between the start & end index
+    temp = string[end_index - 1 - i] #ending index
+    string[end_index - 1 - i] = string[start_index] #last index value is reassigned to first
+    string[start_index] = temp #first index value is reassigned to last (temp)
     i += 1
+    start_index += 1
+    p string
   end
-  #return string
 end
+
+# def reverse_word(start_index, length, string) #start index 7, length 6 ***SOMETHING IS OFF HERE WITH THE LENGTH
+#   end_index = start_index + length - 1
+#   i = start_index
+#   while i < (start_index + (length / 2)) #half way between the start & end index
+#     temp = string[end_index - i ] #ending index
+#     string[end_index - i] = string[i]
+#     string[i] = temp
+#     i += 1
+#   end
+#   #return string
+# end
 
 def reverse_sentence(my_sentence)
   return nil if my_sentence.nil?
@@ -212,4 +191,4 @@ def reverse_sentence(my_sentence)
   return my_sentence
 end
 
-reverse_sentence("Hello, world!")
+reverse_sentence("How  do  you   like     them      apples?")
