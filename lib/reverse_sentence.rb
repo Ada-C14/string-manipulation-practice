@@ -4,7 +4,7 @@
 
 
 def reverse_sentence(my_sentence)
-  return nil if my_sentence.nil?
+  return nil if my_sentence.nil? || my_sentence.length <= 1
 
   reverse_phrase = []
   word = []
