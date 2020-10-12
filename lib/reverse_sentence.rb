@@ -26,6 +26,7 @@ def reverse_sentence(my_sentence)
   end
 end
 
+# reverse any part of a string given the starting and end indexes.
 def reverse_string(a, b, string)
   until a >= b
     temp = string[a]
