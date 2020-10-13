@@ -1,8 +1,7 @@
 # A method to my_sentence the words in a sentence, in place.
-# Time complexity: O(n) - n is charcters, has to go through the sentence twice
-# Space complexity: O(1) - String reversal is in place
-# TODO: This doesn't work for strings containing plaindromes of each other: i.e. "tac cat"
-# I don't know if this is fixable with the approach I took
+# Time complexity: O(n) - n is number of characters
+# If n was number of words, it would be roughly n^2, or n*m where m is average word length
+# Space complexity: O(1) - String reversal is entirely in place
 
 def is_whitespace?(char)
   char =~ /\s/ ? (return true) : (return false)
@@ -20,7 +19,7 @@ end
 
 def reverse_sentence(my_sentence)
   return nil if my_sentence.class != String || my_sentence.length == 0
-  # First, my_sentence the string (this preserves spaces)
+  # First, reverse the string (this preserves spaces)
   reverse_string!(my_sentence)
 
   # Next, un-reverse each word in the string
@@ -31,9 +30,8 @@ def reverse_sentence(my_sentence)
       next unless is_whitespace?(char)
       # It's whitespace - end and reverse the word
       word = my_sentence.slice((word_start..index-1))
-      old_word = word.clone
       reverse_string!(word)
-      my_sentence.sub!(old_word, word)
+      my_sentence[(word_start..index-1)] = word
       in_word = false
     else # We're not in a word
       next if is_whitespace?(char) 
@@ -46,9 +44,8 @@ def reverse_sentence(my_sentence)
   # Need to reverse the last word in the sentence manually
   if in_word && word_start
     word = my_sentence.slice((word_start..my_sentence.length))
-    old_word = word.clone
     reverse_string!(word)
-    my_sentence.sub!(old_word, word)
+    my_sentence[(word_start..my_sentence.length)] = word
   end
 
   return my_sentence
