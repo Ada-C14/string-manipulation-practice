@@ -1,6 +1,8 @@
 # A method to my_sentence the words in a sentence, in place.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) - n is charcters, has to go through the sentence twice
+# Space complexity: O(1) - String reversal is in place
+# TODO: This doesn't work for strings containing plaindromes of each other: i.e. "tac cat"
+# I don't know if this is fixable with the approach I took
 
 def is_whitespace?(char)
   char =~ /\s/ ? (return true) : (return false)
@@ -15,7 +17,6 @@ def reverse_string!(string)
     j -= 1
   end
 end
-
 
 def reverse_sentence(my_sentence)
   return nil if my_sentence.class != String || my_sentence.length == 0
