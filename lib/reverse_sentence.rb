@@ -1,6 +1,6 @@
 # A method to reverse the words in a sentence, in place.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse_sentence(my_sentence)
   return nil if my_sentence.nil?
   string_array = my_sentence.split(/(?=\s)(?<=\S)|(?=\S)(?<=\s)/)
@@ -11,7 +11,7 @@ def reverse_sentence(my_sentence)
     i -= 1
   end
 
-  return reverse
+  return my_sentence.replace(reverse)
 end
 
 

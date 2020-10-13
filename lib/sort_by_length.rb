@@ -1,14 +1,14 @@
 # A method which will return an array of the words in the string
 #  sorted by the length of the word.
 # Time complexity: O(nlog(n)) for merge sort - although bubble sort and insertion sort can have a best-case time complexity of O(n)
-# they have the worst case time complexity of O(n^2)
+# they have the worst case time complexity of O(n^2) (which is why I chose to do a merge sort).
 # Space complexity: O(n)
 def sort_by_length(my_sentence)
   array = my_sentence.split(" ")
   if array.empty?
-    array
+    return array
   else
-    merge_sort(array)
+    return merge_sort(array)
   end
 end
 
