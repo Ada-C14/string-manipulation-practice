@@ -3,6 +3,7 @@
 # Time complexity: O(n)
 # Space complexity: O(1)
 #
+# interpretation of selection sort using .delete
 #
 def sort_by_length(my_sentence)
   array = my_sentence.split(" ")
