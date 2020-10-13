@@ -5,7 +5,9 @@ describe "reverse sentence" do
     it "reverse a sentence with two words" do
       test_string = "hello, world"
 
+      # puts "test string object id before: #{test_string.object_id}"
       reverse_sentence(test_string)
+      # puts "test string object id after: #{test_string.object_id}"
 
       expect(test_string).must_equal "world hello,"
     end
