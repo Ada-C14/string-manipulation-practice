@@ -18,6 +18,6 @@ describe "sort_by_length" do
   end
 
   it "will sort a string where the smallest word starts as last" do
-    expect(sort_by_length("love great awesome words I")).must_equal ["I", "love", "great", "words", "awesome"]
+    expect(sort_by_length("love great awesome words I")).must_equal ["I", "love", "words", "great", "awesome"]
   end
 end
