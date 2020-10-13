@@ -5,7 +5,7 @@ describe "reverse sentence" do
     it "reverse a sentence with two words" do
       test_string = "hello, world"
 
-      reverse_sentence(test_string)
+      reverse_sentence(test_string) #> Will break the test unless the orignal parameter has been modified
 
       expect(test_string).must_equal "world hello,"
     end
