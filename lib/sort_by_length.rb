@@ -7,13 +7,12 @@ def sort_by_length(my_sentence)
 
   words = my_sentence.split(" ")
   length = words.length
-  i = 0
 
   #bubble sort
-  while i < length
-    swapped = true
+  i = 0
+  swapped = true
 
-    while i < length - 1 && swapped
+   while i < length - 1 && swapped
       j = 0
       swapped = false
       while j < (length - i - 1)
@@ -26,7 +25,6 @@ def sort_by_length(my_sentence)
         j += 1
       end
       i += 1
-    end
-  end
+   end
   words
 end
