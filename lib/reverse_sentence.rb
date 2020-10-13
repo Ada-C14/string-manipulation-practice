@@ -6,20 +6,24 @@ def reverse_sentence(my_sentence)
   parsed_sentence = my_sentence
   space_indices = []
 
-  i = 0
-  while parsed_sentence.include?(' ')
-    space_index = space_index ? space_indices[i - 1] + 1 :  0
-    space_index += (parsed_sentence =~ /\s/)
-    parsed_sentence = parsed_sentence[space_index + 1..-1]
-    space_indices << space_index
-    i += 1
-  end
+  if my_sentence
 
-  word_swap(my_sentence, space_indices)
+    i = 0
+    while parsed_sentence.include?(' ')
+      space_index = space_index ? space_indices[i - 1] + 1 :  0
+      space_index += (parsed_sentence =~ /\s/)
+      parsed_sentence = parsed_sentence[space_index + 1..-1]
+      space_indices << space_index
+      i += 1
+    end
+
+    word_swap(my_sentence, space_indices)
+  end
 
 end
 
 def word_swap(sentence, space_indices)
+
   original_sentence = sentence.dup
   word_first = 0
   unsorted_last = sentence.length - 1
