@@ -4,13 +4,12 @@
 def reverse_sentence(my_sentence)
   return my_sentence if my_sentence.nil?
 
-  reversed = ""
   sentence_array = []
   length = my_sentence.length
   count = 0
   index = 1
 
-  #split my_sentence into grouped spaces and characters
+  #split my_sentence into grouped spaces and characters == my_sentence.split(/\s/)
   while count < length
     spaces = ""
     chars = ""
@@ -28,10 +27,9 @@ def reverse_sentence(my_sentence)
     end
 
     sentence_array << chars if chars.length > 0
-
   end
 
-  #reverse grouped items inplace
+  #reverse grouped items inplace == sentence_array.reverse!
   while index <= sentence_array.length/2
     temp = sentence_array[index - 1]
     sentence_array[index - 1] = sentence_array[sentence_array.length - index]
@@ -39,7 +37,8 @@ def reverse_sentence(my_sentence)
     index += 1
   end
 
-  #join reversed array items into a string
+  #join reversed array items into a string == sentence_array.join
+  reversed = ""
   sentence_array.length.times { |item| reversed << sentence_array[item]}
 
   #modify reference value of method argument
