@@ -4,7 +4,7 @@ describe "sort_by_length" do
   it "will return an empty array for an empty string" do
     expect(sort_by_length("")).must_equal []
   end
-  
+
   it "will return an array of words, by length" do
     expect(sort_by_length("I love Ada")).must_equal ["I", "Ada", "love"]
   end
