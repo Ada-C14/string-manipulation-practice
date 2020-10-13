@@ -15,28 +15,37 @@ def reverse_string(string, i, j)
 end
 
 def reverse_sentence(my_sentence)
+  # return early if input is null or empty
+  return if my_sentence.nil?
+  return "" if my_sentence.length <= 1
 
+  # reverse string
   reverse_string(my_sentence, 0, my_sentence.length - 1)
 
-  i = 0
-  j = 0
-  while
-  my_sentence[j] != " "
-    j += 1
+  word_start = 0
+  word_end = 0
+
+  # find word_end
+  until my_sentence[word_end] == " " || !(word_end < my_sentence.length)
+    word_end += 1
   end
 
-  while i < j
-    place_hold = my_sentence[i]
-    my_sentence[i] = my_sentence[j]
-    my_sentence[j] = place_hold
-    i += 1
-    j -= 1
+  # loop through words
+  while word_end <= my_sentence.length
+    # reverse word
+    reverse_string(my_sentence, word_start, word_end - 1)
+
+    # find new word_start
+    word_start = word_end + 1
+
+    # find new word_end
+    word_end = word_start
+    until my_sentence[word_end] == " " || word_end > (my_sentence.length - 1)
+      word_end += 1
+    end
   end
-
-
 
   return my_sentence
-
 end
 
 
