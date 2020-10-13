@@ -72,11 +72,11 @@ describe "reverse sentence" do
     end
 
     it 'can reverse a sentence with duplicate/palindromic words' do
-      test_string = 'cat tac'
+      test_string = 'cat tac racecar tac racecar cat'
 
       reverse_sentence(test_string)
 
-      expect(test_string).must_equal "tac cat"
+      expect(test_string).must_equal "cat racecar tac racecar tac cat"
     end
   end
 end
