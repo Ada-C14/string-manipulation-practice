@@ -1,7 +1,6 @@
 # A method which will return an array of the words in the string
 #  sorted by the length of the word.
-# Time complexity: O(n^2)
-## let n = num of words in sentence; let m = num of chars in sentence; let l = num of char in word
+# Time complexity: O(n^2), where n = num of words in sentence
 # Space complexity: O(1) since sorting is happening in-place
 
 

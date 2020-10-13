@@ -1,8 +1,8 @@
 # A method to reverse the words in a sentence, in place.
 
 # METHOD 1: USING .REPLACE, but is that an "in-place" reversal? Really it's a reversal in a new string and replacing the contents of the passed in object with the values of the new string....
-# Time complexity: O(n)
-# Space complexity: O(n)
+# Time complexity: O(nm), where n is number of words in the sentence and m is the number of chars in the sentence
+# Space complexity: O(n), where n is the number of words in the sentence
 # sources: https://ruby-doc.org/core-2.6.5/String.html#method-i-split;https://ruby-doc.org/core-2.6.5/String.html#method-i-replace
 # def reverse_sentence(my_sentence)
 #   if my_sentence
@@ -20,8 +20,8 @@
 # end
 
 # METHOD 2: NOT USING .REPLACE -- it's a plate of spaghetti
-# Time complexity: O(n)
-# Space complexity: O(n)
+# Time complexity: O(nm), where n is number of words in the sentence and m is the number of chars in the sentence
+# Space complexity: O(n), where n is the number of words in the sentence
 def reverse_sentence(my_sentence)
   if my_sentence
     space_indices = get_num_spaces(my_sentence)
