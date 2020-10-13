@@ -15,10 +15,12 @@ end
 
 
 def reverse_sentence(my_sentence)
+
   return my_sentence if my_sentence.nil?
 
   i = 0
   j = 0
+
   while j < my_sentence.length
     char = my_sentence[j]
     if char == " "
@@ -30,10 +32,4 @@ def reverse_sentence(my_sentence)
 
   reverse_helper(my_sentence, i, my_sentence.length - 1)
   reverse_helper(my_sentence, 0, my_sentence.length - 1)
-
 end
-
-
-# s = "How     Are  You"
-#
-# puts reverse_sentence(s)
