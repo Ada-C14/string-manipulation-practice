@@ -52,16 +52,18 @@ def word_swap(sentence, space_indices)
   num_words = space_indices.length + 1
 
   num_words.times do |i|
-    space_index = space_indices[i] ? space_indices[i] : original_sentence.length
-    word_last = space_index - 1
+    if word_first < original_sentence.length
+      space_index = space_indices[i] ? space_indices[i] : original_sentence.length
+      word_last = space_index - 1
 
-    sentence[-space_index..unsorted_last] = original_sentence[word_first..word_last]
-    #use space_index, but make more negative since counting from string end starts at -1
-    if space_index < original_sentence.length
-      sentence[-space_index - 1] = " "
+      sentence[-space_index..unsorted_last] = original_sentence[word_first..word_last]
+      #use space_index, but make more negative since counting from string end starts at -1
+      if space_index < original_sentence.length
+        sentence[-space_index - 1] = " "
+      end
+
+      unsorted_last = original_sentence.length - (space_index + 2)
+      word_first = space_index + 1
     end
-
-    unsorted_last = original_sentence.length - (space_index + 2)
-    word_first = space_index + 1
   end
 end
