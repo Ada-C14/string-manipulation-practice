@@ -4,7 +4,9 @@
 def reverse_sentence(my_sentence)
   return my_sentence if my_sentence.nil?
 
-  reverse(my_sentence)
+  first_index = 0
+  last_index = my_sentence.length - 1
+  reverse(my_sentence, first_index, last_index)
 
   i = 0
   word_length = 0
@@ -17,8 +19,14 @@ def reverse_sentence(my_sentence)
 
     if word_length > 0
       index_when_word_starts = i - word_length
-      index_after_word_ends = i
-      my_sentence[index_when_word_starts...index_after_word_ends] = reverse(my_sentence[index_when_word_starts...index_after_word_ends])
+      index_when_word_ends = i - 1
+
+      # index_after_word_ends = i
+      # my_sentence[index_when_word_starts...index_after_word_ends] = reverse(my_sentence[index_when_word_starts...index_after_word_ends])
+      # "Note that my_sentence[index_when_word_starts...index_after_word_ends] creates a new array which is a copy of the original O(n) space complexity." - Chris
+      # "You can get O(1) space complexity passing the indexes between which you want to reverse instead." - Chris
+
+      reverse(my_sentence, index_when_word_starts, index_when_word_ends)
 
       word_length = 0
     end
@@ -32,11 +40,11 @@ end
 # Helper method to reverse
 # Time complexity: O(n) where n is the length of the sentence
 # Space complexity: O(1)
-def reverse(my_sentence)
+def reverse(my_sentence, first_index, last_index)
   return if my_sentence.nil?
 
-  i = 0
-  j = my_sentence.length - 1
+  i = first_index
+  j = last_index
 
   while i < j
     temporary_value_holder = my_sentence[i]
