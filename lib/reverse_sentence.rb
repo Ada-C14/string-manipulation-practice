@@ -11,7 +11,7 @@ def reverse_sentence(my_sentence)
   split_str = my_sentence.split(/(\s)/)
 
   i = 0
-  j = split_str.length - 1 #starting point is last element of str
+  j = split_str.length - 1
   while i <= j
   str_reversed << split_str[j - i]
   i += 1

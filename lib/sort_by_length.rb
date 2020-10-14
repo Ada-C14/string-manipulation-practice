@@ -24,7 +24,6 @@ def sort_by_length(my_sentence)
       end
       i += 1
     end
-
   end
   return split_arr
 end
