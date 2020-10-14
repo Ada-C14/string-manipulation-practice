@@ -7,16 +7,13 @@ def reverse_sentence(my_sentence)
     return nil
   end
 
-  word_arr = my_sentence.split(" ")
+  word_arr = my_sentence.split(/(\s+)/)
 
   reversed = reverse_arr(word_arr)
   string = ""
 
-  reversed.each do |word|
+  reversed.each_with_index do |word, index|
     string << word
-    if index != reversed.length-1
-      string << " "
-    end
   end
 
   return string
