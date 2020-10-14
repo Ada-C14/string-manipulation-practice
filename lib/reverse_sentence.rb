@@ -2,7 +2,7 @@
 # Time complexity: O(n): there are two loops, first loop is O(n/2) and the second loop is O(n).
 #                        So, O(n/2) + O(n) --> O(n)
 # Space complexity: O(1): In the first loop on line 16, it reverses the string in place.
-#                         In the second loop on line 24, the helper method "reverse_a_word" reverses each word in place,
+#                         In the second loop on line 24, the helper method "reverse_words" reverses each word in place,
 #                         and the reversed word replaces the original String[x..y], it's in place replacement.
 #                         Plus extra variables, overall, the space complexity is a constant.
 
@@ -12,24 +12,20 @@ def reverse_sentence(my_sentence)
     return my_sentence
   else
     # Step 1: Reverse the whole String to keep all whitespaces
-    idx = 0
-    while idx < (my_sentence.length / 2)
-      my_sentence[idx], my_sentence[my_sentence.length - idx - 1] = my_sentence[my_sentence.length - idx - 1], my_sentence[idx]
-      idx += 1
-    end
+    my_sentence = reverse_words(my_sentence)
 
     # Step 2: Reverse each word in the String back to its original word
     start_idx = 0
     end_idx = 0
     while end_idx < (my_sentence.length - 1)
-      # call the helper method reverse_a_word to reverse the words
+      # call the helper method reverse_words to reverse the words
       if my_sentence[end_idx].match?(/\s/)
         # when the first element in the string is not a whitespace
         if end_idx > 0
-          my_sentence[start_idx..(end_idx - 1)] = reverse_a_word(my_sentence[start_idx..(end_idx - 1)])
+          my_sentence[start_idx..(end_idx - 1)] = reverse_words(my_sentence[start_idx..(end_idx - 1)])
         # when the first element in the string is a whitespace
         else
-          my_sentence[start_idx..(end_idx)] = reverse_a_word(my_sentence[start_idx..(end_idx)])
+          my_sentence[start_idx..(end_idx)] = reverse_words(my_sentence[start_idx..(end_idx)])
         end
         start_idx = end_idx + 1
       end
@@ -37,14 +33,14 @@ def reverse_sentence(my_sentence)
     end
 
     # Step 3: Handle the last word
-    my_sentence[(start_idx)..(my_sentence.length)] = reverse_a_word(my_sentence[(start_idx)..(my_sentence.length)])
+    my_sentence[(start_idx)..(my_sentence.length)] = reverse_words(my_sentence[(start_idx)..(my_sentence.length)])
 
     return my_sentence
   end
 end
 
 # Create a helper method to reverse the reversed word
-def reverse_a_word(word)
+def reverse_words(word)
   idx = 0
   while idx < (word.length / 2)
     word[idx], word[(word.length - idx - 1)] = word[(word.length - idx - 1)], word[idx]
