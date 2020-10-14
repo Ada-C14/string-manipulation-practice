@@ -47,9 +47,3 @@ def reverse_sentence(my_sentence)
 
   return my_sentence
 end
-
-
-p reverse_sentence("Hello, world")
-p reverse_sentence("Yoda is awesome!")
-p reverse_sentence("    This is fine!   ")
-p reverse_sentence("Hello      how are you?")
