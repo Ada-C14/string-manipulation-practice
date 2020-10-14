@@ -70,5 +70,13 @@ describe "reverse sentence" do
 
       expect(test_string == "     this! do can I  " || answer == "     this! do can I  ").must_equal true
     end
+
+    it 'can reverse a sentence with duplicate/palindromic words' do
+      test_string = 'cat tac racecar tac racecar cat'
+
+      reverse_sentence(test_string)
+
+      expect(test_string).must_equal "cat racecar tac racecar tac cat"
+    end
   end
 end
