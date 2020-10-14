@@ -1,7 +1,7 @@
 # A method to my_sentence the words in a sentence, in place.
 # Time complexity: O(n) - n is number of characters
 # If n was number of words, it would be roughly n^2, or n*m where m is average word length
-# Space complexity: O(1) - String reversal is entirely in place
+# Space complexity: O(m) - m is largest word
 
 def is_whitespace?(char)
   char =~ /\s/ ? (return true) : (return false)
