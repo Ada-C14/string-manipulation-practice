@@ -1,6 +1,6 @@
 # A method to reverse the words in a sentence, in place.
-# Time complexity: o(n^2)
-# Space complexity: o(n)
+# Time complexity: O(n)
+# Space complexity: O(n)
 
 def reverse_helper(sentence, i, j)
   while i < j
