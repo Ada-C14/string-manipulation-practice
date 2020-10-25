@@ -2,11 +2,11 @@
 # Time complexity: O(n^2)
 # Space complexity: ?
 def reverse_sentence(my_sentence) #using bubble sort method
-  if my_sentence == nil
+  if my_sentence == nil || my_sentence.length < 1
     return nil
   end
 
-  array = my_sentence.split(/(\s+)|(\\w+)/)
+  array = my_sentence.split(/(\s+)/)
   length = array.length
 
   i = 0
@@ -24,3 +24,6 @@ def reverse_sentence(my_sentence) #using bubble sort method
   end
   return array
 end
+
+
+
