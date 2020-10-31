@@ -1,6 +1,6 @@
 # A method to reverse the words in a sentence, in place.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: o(n)
+# Space complexity: o(n)
 def reverse_sentence(my_sentence)
   if my_sentence.class == String
     separated_words = my_sentence.split(/\s/).select { |k| k != "" }
