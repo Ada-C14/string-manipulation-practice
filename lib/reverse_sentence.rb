@@ -18,7 +18,6 @@ def reverse_sentence(my_sentence)
     start_index = 0
     end_index = 0
     while i < my_sentence.length
-      # if we see a letter
       if my_sentence[i] != " "
         if i == 0 || my_sentence[i - 1] == " "
           start_index = i
@@ -27,7 +26,6 @@ def reverse_sentence(my_sentence)
           end_index = i
           j = 0
           while j <= (end_index - start_index)/2
-            # p my_sentence
             temp = my_sentence[j + start_index]
             my_sentence[j + start_index] = my_sentence[end_index - j]
             my_sentence[end_index - j] = temp
