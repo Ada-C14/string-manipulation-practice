@@ -5,7 +5,6 @@ def reverse_sentence(my_sentence)
   if my_sentence == nil
     return true
   end
-
     i = 0
     while i < my_sentence.length/2
       temp = my_sentence[i]
@@ -13,7 +12,6 @@ def reverse_sentence(my_sentence)
       my_sentence[my_sentence.length - 1 - i] = temp
       i+= 1
     end
-
     i = 0
     start_index = 0
     end_index = 0
